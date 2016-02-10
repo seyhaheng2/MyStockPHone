@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SeyhaStock</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+    <body class="fixed-left">
+        <div id="wrapper">
+            <div class="topbar">
+            	<%= render 'layouts/header' %>
+            </div>
+            <!-- ========== Left Sidebar Start ========== -->
+            <%= render 'layouts/left_side' %>
+			<div class="content-page">
+			    <!-- Start content -->
+			    <div class="content">
+			        <div class="container">
+						<%= yield %>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</body>
+</html>

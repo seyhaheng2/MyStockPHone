@@ -1,0 +1,27 @@
+<div class="card-box">
+   <h4 class="m-t-0 header-title"><b>New Products</b></h4>
+   <p class="text-muted m-b-30 font-13"></p>
+   <div class="row">
+     <%= form_for(@category) do |f| %>
+          <% if @category.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+              <ul>
+              <% @category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :name %></label>
+            <div class="col-md-10">
+               <%= f.text_field :name, class: 'form-control' %>
+            </div>
+        </div>
+      </div>
+      <%= f.submit %>
+      <% end %>
+   </div>
+</div>

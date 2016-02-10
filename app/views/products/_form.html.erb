@@ -1,0 +1,71 @@
+<div class="card-box">
+   <h4 class="m-t-0 header-title"><b>New Products</b></h4>
+   <p class="text-muted m-b-30 font-13"></p>
+   <div class="row">
+      <%= form_for(@product, html: {class: 'form-horizontal'}) do |f| %>
+      <% if @product.errors.any? %>
+      <div id="error_explanation">
+         <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+         <ul>
+            <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+         </ul>
+      </div>
+      <% end %>
+      <div class="col-md-6">
+         <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :title %></label>
+            <div class="col-md-10">
+               <%= f.text_field :title, class: 'form-control' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-md-2 control-label" for="example-email"><%= f.label :price %></label>
+            <div class="col-md-10">
+               <%= f.text_field :price, class: 'form-control' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label "Imie" %></label>
+            <div class="col-md-10">
+               <%= f.text_field :photo, class: 'form-control' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :descrip %></label>
+            <div class="col-md-10">
+               <%= f.text_area :description, class: 'form-control' %>
+            </div>
+         </div>
+         <%= f.submit %>                                                          
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :kind %></label>
+            <div class="col-md-10">
+               <%= f.select :kind, %w{ Sale Buy Other } %>
+            </div>
+        </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :Brand %></label>
+            <div class="col-md-10">
+               <%= f.select :brand,Brand.all.map {|a|[a.name, a.id]}, class: 'form-control' %>
+            </div>
+        </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :subcategory %></label>
+            <div class="col-md-10">
+               <%= f.select :subcategory,Subcategory.all.map {|a|[a.name, a.id]}, class: 'form-control' %>
+            </div>
+        </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label"><%= f.label :Category %></label>
+            <div class="col-md-10">
+               <%= f.select :category,Category.all.map {|a|[a.name, a.id]}, class: 'form-control' %>
+            </div>
+        </div>
+      </div>
+      <% end %>
+   </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+            <!--- Divider -->
+            <div id="sidebar-menu">
+                <ul>
+
+                    <li class="text-muted menu-title">More</li>
+
+                    <li class="has_sub">
+                        <%= link_to products_path do %>
+                            <i class="fa fa-file"></i><span> Product </span>
+                        <% end %>
+                    </li>
+                    <li class="has_sub">
+                        <%= link_to subcategories_path do %>
+                            <i class="fa fa-map"></i><span> Subcategory </span>
+                        <% end %>
+                    </li>
+                      <li class="has_sub">
+                        <%= link_to categories_path do %>
+                            <i class="fa fa-object-group"></i><span> Category </span>
+                        <% end %>
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
