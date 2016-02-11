@@ -6,10 +6,18 @@
     <div class="navbar navbar-default" role="navigation">
       <div class="container">
           <div class="">
-           <form role="search" class="navbar-left app-search pull-left hidden-xs">
+<!--            <form role="search" class="navbar-left app-search pull-left hidden-xs">
              <input type="text" placeholder="Search..." class="form-control">
-             <a href=""><i class="fa fa-search"></i></a>
-           </form>  
+             <a href=""></a>
+ -->
+             <%= form_tag root_path,class: "navbar-left app-search pull-left hidden-xs", method: :get, :id => "lesson_search" do %>
+                <%= text_field_tag :query, params[:query], class: "form-control input-sm no-border rounded", placeholder: "Searching...." %>
+      <!--           <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button> -->
+           <% end %>
+           <!-- </form>   -->
+           
           </div>
       </div>
     </div>
