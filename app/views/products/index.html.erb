@@ -8,7 +8,7 @@
          </div>
              <div class="pull-right">
                   
-  <%= form_tag root_path, method: :get, :id => "lesson_search" do %>
+<%= form_tag root_path, method: :get, :id => "lesson_search" do %>
       <%= text_field_tag :query, params[:query], class: "form-control input-sm no-border rounded", placeholder: "Searching...." %>
  <% end %>
 
@@ -28,14 +28,15 @@
                       <table class="table table-striped dataTable no-footer" id="datatable-editable">
                         <thead>
                           <tr role="row">
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Name</th>
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Imie</th>
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Price</th>
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Kind</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 40px;">Id</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 230px;">Name</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 210px;">Imie</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 100px;">Price</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 100px;">Kind</th>
                             <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Description</th>
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Brand</th>
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Subcategory</th>
-                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Category</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 100px;">Brand</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 100px;">Subcategory</th>
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 100px;">Category</th>
                             <th colspan="3"></th>
                           </tr>
                         </thead>
@@ -43,6 +44,7 @@
                         <tbody>
                           <% @products.each do |product| %>
                             <tr>
+                              <td><%= product.id %></td>
                               <td><%= product.title %></td>
                               <td><%= product.photo %></td>
                               <td><%= number_to_currency product.price %></td>
