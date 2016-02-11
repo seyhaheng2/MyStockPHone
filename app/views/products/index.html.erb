@@ -6,20 +6,16 @@
                <%= link_to 'New Product  <i class="fa fa-plus"></i>'.html_safe, new_product_path, class: "btn btn-default waves-effect waves-light" %>
             </div>
          </div>
-           <!--   <div class="pull-right">
-                  <div id="datatable-editable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-editable"></label></div>
-               </div> -->
+             <div class="pull-right">
+                  
+  <%= form_tag root_path, method: :get, :id => "lesson_search" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control input-sm no-border rounded", placeholder: "Searching...." %>
+ <% end %>
+
+               </div>
 
 
 
-
-<%= form_tag products_path, :method => 'get', :id => "products_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  <div id="products"><%= render 'products' %></div>
-<% end %>
 
 
                

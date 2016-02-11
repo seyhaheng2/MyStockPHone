@@ -1,27 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="panel">
+   <div class="panel-body">
+      <div class="row">
+         <div class="col-sm-6">
+            <div class="m-b-30">
+               <%= link_to 'New Subcategory  <i class="fa fa-plus"></i>'.html_safe, new_category_path, class: "btn btn-default waves-effect waves-light" %>
+            </div>
+         </div>   
+      </div>
+      <div class="">
+         <div id="datatable-editable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+            <div class="row">
+               <div class="col-sm-12">
+                  
+                      <table class="table table-striped dataTable no-footer" id="datatable-editable">
+                        <thead>
+                          <tr role="row">
+                            <th class="sorting" rowspan="1" colspan="1" style="width: 209px;">Name</th>
+                            <th colspan="3"></th>
+                          </tr>
+                        </thead>
 
-<h1>Listing Categories</h1>
+                        <tbody>
+                          <% @categories.each do |category| %>
+                            <tr>
+                              <td><%= category.name %></td>
+                            <% if current_user %>
+                              <td class="actions"><%= link_to '<i class="fa fa-image"></i>'.html_safe, category %></td>
+                              <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_category_path(category) %></td>
+                              <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              <% end %>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end: page -->
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>

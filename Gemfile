@@ -49,3 +49,4 @@ end
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'will_paginate'
+gem 'pg_search'

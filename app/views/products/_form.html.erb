@@ -38,31 +38,31 @@
                <%= f.text_area :description, class: 'form-control' %>
             </div>
          </div>
-         <%= f.submit %>                                                          
+         <%= f.submit class: 'btn btn-default' %>                                                          
       </div>
       <div class="col-md-6">
         <div class="form-group">
             <label class="col-md-2 control-label"><%= f.label :kind %></label>
             <div class="col-md-10">
-               <%= f.select :kind, %w{ Sale Buy Other } %>
+               <%= f.select :kind, %w{ Sale Buy Other },{},  {class: "form-control"} %>
             </div>
         </div>
           <div class="form-group">
             <label class="col-md-2 control-label"><%= f.label :Brand %></label>
             <div class="col-md-10">
-               <%= f.select :brand,Brand.all.map {|a|[a.name, a.id]}, class: 'form-control' %>
+               <%= f.select :brand,Brand.all.map {|a| [a.name, a.id]},{}, {class: "form-control"} %>
             </div>
         </div>
           <div class="form-group">
-            <label class="col-md-2 control-label"><%= f.label :subcategory %></label>
+            <label class="col-md-2 control-label"><%= f.label :subcate %></label>
             <div class="col-md-10">
-               <%= f.select :subcategory,Subcategory.all.map {|a|[a.name, a.id]}, class: 'form-control' %>
+               <%= f.select :subcategory,Subcategory.all.map {|a|[a.name, a.id]},{}, class: 'form-control' %>
             </div>
         </div>
           <div class="form-group">
             <label class="col-md-2 control-label"><%= f.label :Category %></label>
             <div class="col-md-10">
-               <%= f.select :category,Category.all.map {|a|[a.name, a.id]}, class: 'form-control' %>
+               <%= f.select :category,Category.all.map {|a|[a.name, a.id]},{}, class: 'form-control' %>
             </div>
         </div>
       </div>

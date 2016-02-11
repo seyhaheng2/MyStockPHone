@@ -4,7 +4,19 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+
+    qry = params[:query]
+    if qry.to_s == ''
+      @products = Product.all.paginate(:page => params[:page], per_page: 6)
+    else
+      @products = Product.text_search(qry).paginate(:page => params[:page], per_page: 12)
+    end
+
+
+
+
+
+
   end
 
   # GET /products/1
